@@ -35,7 +35,7 @@ const filterNameStartByA = array => (array.filter((value) => (value.charAt(0) ==
  *   - Vous ne pouvez pas utiliser de variable (autre que l'argument de la fonction)
   */
 
-const sum = array => (array.reduce((acc,value,index) => acc +=value));
+const sum = array => array.reduce((acc,value) => acc + value,0);
 
 /**
  * Utiliser la fonction .find sur le tableau passé en paramètre
@@ -56,7 +56,7 @@ const sum = array => (array.reduce((acc,value,index) => acc +=value));
  *   - Vous ne pouvez pas utiliser de variable (autre que l'argument de la fonction)
   */
 
-const findUserById = (array, id) => array.find( item => item.id === id)
+const findUserById = (array, id) => array.find( item => item.id === id)?.name ?? null;
 
 let result = multiplyByTwo([1,2,3,5]);
 console.log(`multiplication du tableau par 2 : ${result}`)
@@ -66,6 +66,7 @@ console.log(result2);
 
 let result3 = sum([12,8,8,20,2]);
 console.log(result3);
+console.log(sum([]));
 
 const data = [
     {id: 1, name: 'John'},
@@ -75,5 +76,6 @@ const data = [
 ];
 let result4 = findUserById(data,3)
 console.log(result4);
+console.log(findUserById(data,6))
 
 module.exports = {multiplyByTwo, filterNameStartByA, sum, findUserById};
