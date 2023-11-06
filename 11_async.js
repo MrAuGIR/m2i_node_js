@@ -1,4 +1,5 @@
 const {sleep} = require("./10_promise.js");
+const axios = require("axios");
 
 /**
  * Créez une fonction synchrone qui attend 2 seconde puis execute le callback passé en paramètre
@@ -49,17 +50,14 @@ const usingAwait = async (cb) => {
 //const axios = require("axios");
 
 const apiResponse = async (url) => {
-    const result = await fetch(url, {
-        method: "GET",
-        headers: {
-            "Accept": "application/json"
-        }
-    });
-    if (result.ok === true) {
-        const json =  await result.json();
-        return json;
-    }
-    return null;
+    const response = await axios.get(url);
+    // const result = await fetch(url, {
+    //     method: "GET",
+    //     headers: {
+    //         "Accept": "application/json"
+    //     }
+    // });
+    return response.data;
 }
 
 
@@ -70,9 +68,8 @@ usingThen(() => console.log("hello aurelien"))
 usingAwait(()=> console.log("hello aurelien 'avec await'"))
 
 /* 3 */
-apiResponse("https://jsonplaceholder.typicode.com/todos/1").then((res) => {
-    console.log(res);
-    });
+apiResponse("https://jsonplaceholder.typicode.com/todos/1").then((res) => console.log(res));
+
 
 module.exports = {usingThen, usingAwait, apiResponse};
 
