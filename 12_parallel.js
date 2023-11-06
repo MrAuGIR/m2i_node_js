@@ -27,7 +27,7 @@ const parallel = () => {
         promises.push(apiResponse(url))
     });
 
-    Promise.all(promises).then(values => console.log(values))
+    Promise.all(promises).then(values =>return values)
 }
 
 parallel();
