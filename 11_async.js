@@ -61,14 +61,14 @@ const apiResponse = async (url) => {
 }
 
 
-/* 1 */
-usingThen(() => console.log("hello aurelien"))
-
-/* 2 */
-usingAwait(()=> console.log("hello aurelien 'avec await'"))
-
-/* 3 */
-apiResponse("https://jsonplaceholder.typicode.com/todos/1").then((res) => console.log(res));
+// /* 1 */
+// usingThen(() => console.log("hello aurelien"))
+//
+// /* 2 */
+// usingAwait(()=> console.log("hello aurelien 'avec await'"))
+//
+// /* 3 */
+// apiResponse("https://jsonplaceholder.typicode.com/todos/1").then((res) => console.log(res));
 
 
 module.exports = {usingThen, usingAwait, apiResponse};
