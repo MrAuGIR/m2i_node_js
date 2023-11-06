@@ -25,6 +25,11 @@ let data = {
     }
 }
 
+let dataNoGroup = {
+    name: "eric"
+}
+
 console.log(getGroupName(data));
+console.log(getGroupName(dataNoGroup))
 
 module.exports = {getGroupName};
